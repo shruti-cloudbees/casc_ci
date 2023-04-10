@@ -1,0 +1,41 @@
+removeStrategy:
+  items: "none"
+  rbac: "sync"
+items:
+  - kind: pipeline
+    name: pipeline_test
+    concurrentBuild: true
+    definition:
+      cpsFlowDefinition:
+        sandbox: true
+        script: |
+          pipeline {
+              agent {
+                  kubernetes {
+                      yaml '''
+          apiVersion: v1
+          kind: Pod
+          spec:
+            containers:
+            - name: "python"
+              image: "jenkins/jnlp-agent-python"
+              tty: true
+              command:
+              - cat
+          '''
+                      defaultContainer 'python'
+                  }
+              }
+
+              stages {
+                  stage('Hello') {
+                      steps {
+                          echo 'Hello World ^${VAR}'
+                      }
+                  }
+              }
+          }          
+    description: ''
+    disabled: false
+    displayName: pipeline_test
+    resumeBlocked: false
