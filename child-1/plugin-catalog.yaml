@@ -1,0 +1,10 @@
+type: "plugin-catalog"
+version: "1" 
+name: "child1-catalog"
+displayName: "Plugin Catalog for Child 1"
+configurations:
+  - description: "UrbanCode for Testing"
+    includePlugins:
+      ibm-ucdeploy-build-steps:
+        url: https://raw.githubusercontent.com/UrbanCode/IBM-UCD-PLUGINS/main/files/jenkins-pipeline-ud-plugin/ibm-ucdeploy-build-steps-2.27.1134919.hpi
+        
