@@ -7,7 +7,3 @@ plugins:
   - "plugins.yaml"
 jcasc:
   - "jenkins.yaml"
-catalog:
-  - "plugin-catalog.yaml"
-items:
-  - "items.yaml"
